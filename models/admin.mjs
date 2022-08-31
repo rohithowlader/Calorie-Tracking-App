@@ -15,6 +15,10 @@ const adminSchema = mongoose.Schema({
     type: String,
     requied: true,
   },
+  mobile: {
+    type: Number,
+    requied: false,
+  },
   uuid: {
     type: String,
     requied: true,
@@ -28,5 +32,5 @@ const adminSchema = mongoose.Schema({
     default: Date.now,
   },
 },{timestamps:true});
-const Admin = mongoose.model("Admin", userSchema);
+const Admin = mongoose.model("Admin", adminSchema);
 export default Admin;

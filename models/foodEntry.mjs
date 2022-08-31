@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 
 
-const userSchema = mongoose.Schema({
+const foodEntrySchema = mongoose.Schema({
   uuid: {
     type: String,
     requied: true,
@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema({
     requied: true,
   },
   calorie: {
-    type: String,
+    type: Number,
     requied: true,
   },
   date: {
@@ -24,5 +24,5 @@ const userSchema = mongoose.Schema({
     default: Date.now,
   },
 },{timestamps:true});
-const User = mongoose.model("User", userSchema);
-export default User;
+const foodEntry = mongoose.model("FoodEntry", foodEntrySchema);
+export default foodEntry;

@@ -16,7 +16,7 @@ const userSchema = mongoose.Schema({
     requied: true,
   },
   mobile: {
-    type: number,
+    type: Number,
     requied: false,
   },
   uuid: {
@@ -30,6 +30,10 @@ const userSchema = mongoose.Schema({
   date: {
     type: Date,
     default: Date.now,
+  },
+  token: {
+    type: String,
+    requied:true,
   },
 },{timestamps:true});
 const User = mongoose.model("User", userSchema);

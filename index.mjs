@@ -20,7 +20,7 @@ app.use('/loginUser',   loginUser);
 
 
 //Index page
-app.get('/',auth,(req,res)=>{
+app.get('/',(req,res)=>{
     res.send('Index Page');
 });
 

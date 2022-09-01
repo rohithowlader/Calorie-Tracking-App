@@ -17,8 +17,9 @@ createUser.post('/', async (req, res) => {
 
         if (!UserFind && !adminFind) {
 
-            const token = jwt.sign({ email }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
-            var uuidGenerate = uuidv4();
+            
+            let uuidGenerate = uuidv4();
+            const token = jwt.sign({ uuidGenerate }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
             const user = new Users({
                 fname,
                 lname,
@@ -33,7 +34,7 @@ createUser.post('/', async (req, res) => {
             return res.status(200).json({
                 messsage: `User ${user.fname} Created`,
                 token: token
-            })
+            });
         }
         else if (adminFind) {
             return res.status(409).json({ message: "Admin Already Present" });

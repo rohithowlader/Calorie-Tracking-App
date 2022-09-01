@@ -4,6 +4,7 @@ import createUser from "./routes/createUser.mjs";
 import createAdmin from "./routes/createAdmin.mjs";
 import loginUser from "./routes/loginUser.mjs";
 import auth from "./middleware/auth.mjs";
+import createEntry from "./routes/userRoutes/createEntry.mjs"
 
 
 connectDB();
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/createUser', createUser);
 app.use('/createAdmin', createAdmin);
 app.use('/loginUser',   loginUser);
+app.use('/createEntry', auth,  createEntry);
 
 
 

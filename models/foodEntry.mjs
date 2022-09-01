@@ -3,7 +3,11 @@ import mongoose from "mongoose";
 
 
 const foodEntrySchema = mongoose.Schema({
-  uuid: {
+  uuidUser: {
+    type: String,
+    requied: true,
+  },
+  uuidEntry: {
     type: String,
     requied: true,
   },

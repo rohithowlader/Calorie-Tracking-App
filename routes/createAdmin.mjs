@@ -24,7 +24,7 @@ verifyPassword.post('/', async (req, res) => {
                 lname,
                 email,
                 mobile,
-                uuid: uuidGenerate,
+                uuidAdmin: uuidGenerate,
                 password,
                 date: Date.now(),
                 token: token

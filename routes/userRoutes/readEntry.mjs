@@ -10,9 +10,9 @@ readEntry.post('/', async (req, res) => {
 
         const { uuidUser,dayTaken, monthTaken, yearTaken } = req.body;
 
-        const UserFind = await Users.findOne({ uuid: uuidUser });
-        const foodEntryFind = await foodEntry.find({$and: [{ uuid: uuidUser}, {dayTaken},{monthTaken},{yearTaken} ]});
-        console.log(foodEntryFind)
+        const UserFind = await Users.findOne({ uuidUser: uuidUser });
+        const foodEntryFind = await foodEntry.find({$and: [{ uuidUser: uuidUser}, {dayTaken},{monthTaken},{yearTaken} ]});
+        
 
         if(!UserFind)
         {
@@ -28,7 +28,6 @@ readEntry.post('/', async (req, res) => {
             sumCalorie=sumCalorie + foodEntryFind[i].calorie;
         }
 
-        console.log("Calorie sum :" + sumCalorie)
         
         return res.status(200).json({
             messsage: `Details for ${UserFind.fname} on ${dayTaken}/${monthTaken}/${yearTaken}. Total Calorie Taken for the day is ${sumCalorie}`,

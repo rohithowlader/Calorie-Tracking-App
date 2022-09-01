@@ -20,7 +20,7 @@ createEntry.post('/', async (req, res) => {
         //The time is taken in 24 hour clock
         const { uuidUser, dayTaken, monthTaken, yearTaken, hourTaken, minuteTaken, product, calorie } = req.body;
 
-        const UserFind = await Users.findOne({ uuid: uuidUser });
+        const UserFind = await Users.findOne({ uuidUser: uuidUser });
         //checking if user is present
         if (!UserFind) {
             return res.status(404).json({ message: "Invalid user's uuid" })

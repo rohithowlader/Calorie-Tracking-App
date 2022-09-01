@@ -19,13 +19,17 @@ const adminSchema = mongoose.Schema({
     type: Number,
     requied: false,
   },
-  uuid: {
+  uuidAdmin: {
     type: String,
     requied: true,
   },
   password: {
     type: String,
     requied: true,
+  },
+  token: {
+    type: String,
+    requied:true,
   },
   date: {
     type: Date,

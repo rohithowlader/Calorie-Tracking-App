@@ -25,7 +25,7 @@ createUser.post('/', async (req, res) => {
                 lname,
                 email,
                 mobile,
-                uuid: uuidGenerate,
+                uuidUser: uuidGenerate,
                 password,
                 date: Date.now(),
                 token: token

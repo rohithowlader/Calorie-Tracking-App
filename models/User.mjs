@@ -19,7 +19,7 @@ const userSchema = mongoose.Schema({
     type: Number,
     requied: false,
   },
-  uuid: {
+  uuidUser: {
     type: String,
     requied: true,
   },

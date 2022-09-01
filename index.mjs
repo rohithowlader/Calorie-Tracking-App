@@ -6,7 +6,8 @@ import loginUser from "./routes/loginUser.mjs";
 import auth from "./middleware/auth.mjs";
 import createEntry from "./routes/userRoutes/createEntry.mjs";
 import readEntry from "./routes/userRoutes/readEntry.mjs";
-import updateEntry from "./routes/userRoutes/updateEntry.mjs"
+import updateEntry from "./routes/userRoutes/updateEntry.mjs";
+import deleteEntry from "./routes/userRoutes/deleteEntry.mjs";
 
 
 connectDB();
@@ -22,6 +23,7 @@ app.use('/loginUser',   loginUser);
 app.use('/createEntry', auth,  createEntry);
 app.use('/readEntry', auth,  readEntry);
 app.use('/updateEntry', auth,  updateEntry);
+app.use('/deleteEntry', auth,  deleteEntry);
 
 
 

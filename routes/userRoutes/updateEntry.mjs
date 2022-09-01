@@ -19,7 +19,7 @@ updateEntry.post('/', async (req, res) => {
         //The time is taken in 24 hour clock
         const { uuidUser, uuidEntry, dayTaken, monthTaken, yearTaken, hourTaken, minuteTaken, product, calorie } = req.body;
 
-        const UserFind = await Users.findOne({ uuid: uuidUser });
+        const UserFind = await Users.findOne({ uuidUser: uuidUser });
         const foodEntryFind = await foodEntry.findOne({ uuidEntry: uuidEntry});
 
         if(!UserFind)

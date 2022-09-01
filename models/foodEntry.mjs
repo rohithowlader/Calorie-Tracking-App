@@ -11,8 +11,24 @@ const foodEntrySchema = mongoose.Schema({
     type: String,
     requied: true,
   },
-  dateTimeTaken: {
-    type: Date,
+  dayTaken: {
+    type: Number,
+    requied: true,
+  },
+  monthTaken: {
+    type: Number,
+    requied: true,
+  },
+  yearTaken: {
+    type: Number,
+    requied: true,
+  },
+  hourTaken: {
+    type: Number,
+    requied: true,
+  },
+  minuteTaken: {
+    type: Number,
     requied: true,
   },
   product: {

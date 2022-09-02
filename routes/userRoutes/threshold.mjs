@@ -13,7 +13,9 @@ threshold.post('/', async (req, res) => {
 
     try {
 
-        const { uuidUser, calorieLimit } = req.body;
+        let { uuidUser, calorieLimit } = req.body;
+        if(calorieLimit===undefined)
+        calorieLimit=2100
 
         const UserFind = await Users.findOne({ uuidUser: uuidUser });
 
@@ -43,7 +45,7 @@ threshold.post('/', async (req, res) => {
             for (let j in foodCalorieEntryFind) {
                 sumCalorie = sumCalorie + foodCalorieEntryFind[j].calorie;
             }
-            if (sumCalorie > 2100) {
+            if (sumCalorie > calorieLimit ) {
                 calorieCrossedPerDay[count] = `${dayTaken + "/" + monthTaken + "/" + yearTaken}`;
                 count++;
             }

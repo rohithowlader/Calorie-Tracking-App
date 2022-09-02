@@ -9,7 +9,7 @@ let createUser = express.Router();
 createUser.post('/', async (req, res) => {
 
     try {
-        const { fname, lname, email, mobile, password } = req.body;
+        let { fname, lname, email, mobile, password } = req.body;
 
         const UserFind = await Users.findOne({ email: email });
         const adminFind = await Admin.findOne({ email: email });

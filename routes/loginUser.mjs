@@ -7,7 +7,7 @@ let loginUser = express.Router();
 
 loginUser.post('/', async (req, res) => {
     try{
-    const { email, password } = req.body;
+    let { email, password } = req.body;
 
     const UserFind = await Users.findOne({ email: email });
     const adminFind = await Admin.findOne({ email: email });

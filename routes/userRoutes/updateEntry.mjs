@@ -17,7 +17,7 @@ updateEntry.post('/', async (req, res) => {
     try {
 
         //The time is taken in 24 hour clock
-        const { uuidUser, uuidEntry, dayTaken, monthTaken, yearTaken, hourTaken, minuteTaken, product, calorie } = req.body;
+        let { uuidUser, uuidEntry, dayTaken, monthTaken, yearTaken, hourTaken, minuteTaken, product, calorie } = req.body;
 
         const UserFind = await Users.findOne({ uuidUser: uuidUser });
         

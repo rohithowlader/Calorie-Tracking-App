@@ -11,9 +11,12 @@ import readEntry from "./routes/userRoutes/readEntry.mjs";
 import updateEntry from "./routes/userRoutes/updateEntry.mjs";
 import deleteEntry from "./routes/userRoutes/deleteEntry.mjs";
 import threshold from "./routes/userRoutes/threshold.mjs";
+import userList from "./routes/adminRoutes/userList.mjs"
 
-
+//Databse Connection
 connectDB();
+
+
 const app = express();
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
@@ -29,11 +32,12 @@ app.use('/readEntry', authUser,  readEntry);
 app.use('/updateEntry', authUser,  updateEntry);
 app.use('/deleteEntry', authUser,  deleteEntry);
 app.use('/threshold', authUser,  threshold);
+app.use('/userList',authAdmin,  userList);
 
 
 
 //Index page
-app.get('/',authAdmin,(req,res)=>{
+app.get('/',(req,res)=>{
     res.send('Index Page');
 });
 

@@ -12,7 +12,8 @@ import updateEntry from "./routes/userRoutes/updateEntry.mjs";
 import deleteEntry from "./routes/userRoutes/deleteEntry.mjs";
 import threshold from "./routes/userRoutes/threshold.mjs";
 import userList from "./routes/adminRoutes/userList.mjs";
-import readEntryAdmin from "./routes/adminRoutes/readEntryAdmin.mjs"
+import readEntryAdmin from "./routes/adminRoutes/readEntryAdmin.mjs";
+import createEntryAdmin from "./routes/adminRoutes/createEntryAdmin.mjs"
 
 //Databse Connection
 connectDB();
@@ -35,6 +36,7 @@ app.use('/deleteEntry', authUser,  deleteEntry);
 app.use('/threshold', authUser,  threshold);
 app.use('/userList',authAdmin,  userList);
 app.use('/readEntryAdmin',authAdmin,  readEntryAdmin);
+app.use('/createEntryAdmin',authAdmin,  createEntryAdmin);
 
 
 

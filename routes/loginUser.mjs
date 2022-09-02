@@ -17,7 +17,6 @@ loginUser.post('/', async (req, res) => {
     }
     else if (UserFind) {
         if (UserFind.password === password) {
-            console.log(UserFind.uuidUser)
             let uuidUser=UserFind.uuidUser;
             //const token = jwt.sign({ uuidGenerate }, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
             const token = jwt.sign( {uuidUser}, process.env.JWT_SECRET_KEY, { expiresIn: '24h' });

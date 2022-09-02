@@ -3,7 +3,9 @@ import connectDB from './config/db.mjs';
 import createUser from "./routes/createUser.mjs";
 import createAdmin from "./routes/createAdmin.mjs";
 import loginUser from "./routes/loginUser.mjs";
-import auth from "./middleware/auth.mjs";
+import loginAdmin from "./routes/loginAdmin.mjs";
+import authUser from "./middleware/authUser.mjs";
+import authAdmin from "./middleware/authAdmin.mjs";
 import createEntry from "./routes/userRoutes/createEntry.mjs";
 import readEntry from "./routes/userRoutes/readEntry.mjs";
 import updateEntry from "./routes/userRoutes/updateEntry.mjs";
@@ -21,16 +23,17 @@ app.use(express.json());
 app.use('/createUser', createUser);
 app.use('/createAdmin', createAdmin);
 app.use('/loginUser',   loginUser);
-app.use('/createEntry', auth,  createEntry);
-app.use('/readEntry', auth,  readEntry);
-app.use('/updateEntry', auth,  updateEntry);
-app.use('/deleteEntry', auth,  deleteEntry);
-app.use('/threshold', auth,  threshold);
+app.use('/loginAdmin',   loginAdmin);
+app.use('/createEntry', authUser,  createEntry);
+app.use('/readEntry', authUser,  readEntry);
+app.use('/updateEntry', authUser,  updateEntry);
+app.use('/deleteEntry', authUser,  deleteEntry);
+app.use('/threshold', authUser,  threshold);
 
 
 
 //Index page
-app.get('/',(req,res)=>{
+app.get('/',authAdmin,(req,res)=>{
     res.send('Index Page');
 });
 

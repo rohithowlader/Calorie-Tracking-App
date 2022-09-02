@@ -35,7 +35,7 @@ const auth = async (req, res, next) => {
 
         const verifyUser = jwt.verify(token, process.env.JWT_SECRET_KEY);
         if (verifyUser) {
-            console.log("Authentication succesfull");
+            console.log("Authentication User succesfull");
         }
         next();
     }

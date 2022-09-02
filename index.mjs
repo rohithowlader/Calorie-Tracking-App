@@ -8,6 +8,7 @@ import createEntry from "./routes/userRoutes/createEntry.mjs";
 import readEntry from "./routes/userRoutes/readEntry.mjs";
 import updateEntry from "./routes/userRoutes/updateEntry.mjs";
 import deleteEntry from "./routes/userRoutes/deleteEntry.mjs";
+import threshold from "./routes/userRoutes/threshold.mjs";
 
 
 connectDB();
@@ -24,6 +25,7 @@ app.use('/createEntry', auth,  createEntry);
 app.use('/readEntry', auth,  readEntry);
 app.use('/updateEntry', auth,  updateEntry);
 app.use('/deleteEntry', auth,  deleteEntry);
+app.use('/threshold', auth,  threshold);
 
 
 

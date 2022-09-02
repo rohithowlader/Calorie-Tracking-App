@@ -11,13 +11,14 @@ deleteEntry.post('/', async (req, res) => {
         const { uuidUser, uuidEntry} = req.body;
 
         const UserFind = await Users.findOne({uuidUser: uuidUser });
-        const foodEntryFind = await foodEntry.findOne({$and: [{ uuidUser: uuidUser},{uuidEntry: uuidEntry } ]});
         
-
         if(!UserFind)
         {
             return res.status(404).json({message:"Invalid user's uuid"})
         }
+
+        const foodEntryFind = await foodEntry.findOne({$and: [{ uuidUser: uuidUser},{uuidEntry: uuidEntry } ]});
+        
         if(!foodEntryFind)
         {
             return res.status(404).json({message:"Invalid entry"})

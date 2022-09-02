@@ -20,12 +20,14 @@ updateEntry.post('/', async (req, res) => {
         const { uuidUser, uuidEntry, dayTaken, monthTaken, yearTaken, hourTaken, minuteTaken, product, calorie } = req.body;
 
         const UserFind = await Users.findOne({ uuidUser: uuidUser });
-        const foodEntryFind = await foodEntry.findOne({ uuidEntry: uuidEntry});
-
+        
         if(!UserFind)
         {
             return res.status(404).json({message:"Invalid user's uuid"})
         }
+
+        const foodEntryFind = await foodEntry.findOne({ uuidEntry: uuidEntry});
+
         if(!foodEntryFind)
         {
             return res.status(404).json({message:"Invalid entry"})

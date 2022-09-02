@@ -11,13 +11,14 @@ readEntry.post('/', async (req, res) => {
         const { uuidUser,dayTaken, monthTaken, yearTaken } = req.body;
 
         const UserFind = await Users.findOne({ uuidUser: uuidUser });
-        const foodEntryFind = await foodEntry.find({$and: [{ uuidUser: uuidUser}, {dayTaken},{monthTaken},{yearTaken} ]});
         
-
         if(!UserFind)
         {
             return res.status(404).json({message:"Invalid user's uuid"})
         }
+
+        const foodEntryFind = await foodEntry.find({$and: [{ uuidUser: uuidUser}, {dayTaken},{monthTaken},{yearTaken} ]});
+        
         if(!foodEntryFind)
         {
             return res.status(404).json({message:"Invalid entry"})

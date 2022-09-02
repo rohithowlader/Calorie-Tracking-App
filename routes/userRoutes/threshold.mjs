@@ -27,7 +27,6 @@ threshold.post('/', async (req, res) => {
             return res.status(404).json({ message: "Invalid entry" })
         }
         let dates = [];
-        let sumCalorie = 0;
         for (let i in foodEntryFind) {
             dates[i] = dateCal(foodEntryFind[i].dayTaken, foodEntryFind[i].monthTaken, foodEntryFind[i].yearTaken);
         }
@@ -39,7 +38,7 @@ threshold.post('/', async (req, res) => {
             let dayTaken = parseInt(strDate.substring(6));
             let monthTaken = parseInt(strDate.substring(4, 6));
             let yearTaken = parseInt(strDate.substring(0, 4));
-            //check here
+            
             const foodCalorieEntryFind = await foodEntry.find({ $and: [{ uuidUser: uuidUser }, { dayTaken }, { monthTaken }, { yearTaken }] });
             let sumCalorie = 0;
             for (let j in foodCalorieEntryFind) {

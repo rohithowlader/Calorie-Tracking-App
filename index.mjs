@@ -16,6 +16,7 @@ import readEntryAdmin from "./routes/adminRoutes/readEntryAdmin.mjs";
 import createEntryAdmin from "./routes/adminRoutes/createEntryAdmin.mjs";
 import updateEntryAdmin from "./routes/adminRoutes/updateEntryAdmin.mjs";
 import deleteEntryAdmin from "./routes/adminRoutes/deleteEntryAdmin.mjs";
+import reportStats from "./routes/adminRoutes/reportStats.mjs";
 
 //Databse Connection
 connectDB();
@@ -41,6 +42,7 @@ app.use('/readEntryAdmin',authAdmin,  readEntryAdmin);
 app.use('/createEntryAdmin',authAdmin,  createEntryAdmin);
 app.use('/updateEntryAdmin',authAdmin,  updateEntryAdmin);
 app.use('/deleteEntryAdmin',authAdmin,  deleteEntryAdmin);
+app.use('/reportStats',authAdmin,  reportStats);
 
 
 
